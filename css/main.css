@@ -1,0 +1,102 @@
+/*******************
+      DEFAULT
+ *******************/
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html{
+  font-size: 20px;
+  line-height: 1.5;
+  font-family: sans-serif;
+}
+
+ /*******************
+      SEARCH BAR
+ *******************/
+.search{
+  position: fixed;
+  height: 3rem;
+  z-index: 100;
+  border-bottom: 1px solid #333;
+  background-color: white;
+  top: 0;
+  right: 0;
+  left: 0;
+  box-shadow: 0 2px 4px #000;
+}
+#search-button{
+  position: absolute;
+  z-index: 120;
+  top: 0;
+  right: 0;
+  width: 3rem;
+  height: 3rem;
+  padding: .5rem;
+  cursor: pointer;
+}
+#search-input{
+  position: absolute;
+  z-index: 110;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-left: 1rem;
+  font-size: 1.8rem;
+}
+ /*******************
+    SEARCH RESULTS
+ *******************/
+.movie{
+  border: 1px solid #bbb;
+  padding: 1rem;
+  overflow: auto;
+  clear: both;
+}
+.poster{
+  float: left;
+  background-color: #ddd;
+  width: 150px;
+  height: auto;
+  min-height: 150px;
+  margin-right: .5rem;
+  margin-bottom: .5rem;
+}
+.movie-title{
+  font-size: 2rem;
+
+}
+.movie-desc{
+  font-size: 1rem;
+  color: #999;
+}
+ /*******************
+    RECOMMENDATIONS
+ *******************/
+
+ /*******************
+      LAYOUT
+ *******************/
+.page{
+  display: none;
+  padding: 1rem;
+  margin-top: 3rem;
+}
+.page.active{
+  display: block;
+}
+.not{
+  display: none;
+}
+.attribution{
+  padding: 1rem;
+  text-align: center;
+}
+.attribution img{
+  width: 80%;
+}
+ /*******************
+      DEFAULT
+ *******************/
