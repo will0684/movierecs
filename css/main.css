@@ -15,6 +15,18 @@ html{
  /*******************
       SEARCH BAR
  *******************/
+.home{
+  position: fixed;
+  height: 3rem;
+  z-index: 100;
+  border-bottom: 1px solid #333;
+  background-color: white;
+  top: 25%;
+  right: 0;
+  left: 0;
+  box-shadow: 0 2px 4px #000;
+  transition: translate 2s;
+}
 .search{
   position: fixed;
   height: 3rem;
@@ -25,6 +37,15 @@ html{
   right: 0;
   left: 0;
   box-shadow: 0 2px 4px #000;
+}
+#back-button{
+  position: absolute;
+  z-index: 120;
+  left: 0;
+  width: 3rem;
+  height: 3rem;
+  padding: .5rem;
+  cursor: pointer;
 }
 #search-button{
   position: absolute;
@@ -44,6 +65,7 @@ html{
   width: 100%;
   height: 100%;
   padding-left: 1rem;
+  margin-left: 2.5rem;
   font-size: 1.8rem;
 }
  /*******************
@@ -51,9 +73,11 @@ html{
  *******************/
 .movie{
   border: 1px solid #bbb;
+  margin: .5rem;
   padding: 1rem;
   overflow: auto;
   clear: both;
+  box-shadow: 10px 10px 5px;
 }
 .poster{
   float: left;
@@ -70,7 +94,13 @@ html{
 }
 .movie-desc{
   font-size: 1rem;
-  color: #999;
+  color: #000;
+}
+.recommendbtn{
+  color: #333;
+  border: 1.5px solid #333;
+  padding: .5rem;
+  display: inline;
 }
  /*******************
     RECOMMENDATIONS
@@ -95,7 +125,7 @@ html{
   text-align: center;
 }
 .attribution img{
-  width: 80%;
+  width: 20%;
 }
  /*******************
       DEFAULT
