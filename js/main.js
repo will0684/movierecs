@@ -99,8 +99,7 @@ let app = {
               div.textContent = movie.title;
               desc.textContent = movie.overview;
               rev.textContent = 'Read Reviews';
-              let revurl = app.getReviews(id);
-              rev.setAttribute('href', revurl);
+              rev.setAttribute('href', app.getReviews(id))
               poster.src = 'http://image.tmdb.org/t/p/w500' + movie.poster_path;
               div.appendChild(poster);
               div.appendChild(desc);
@@ -125,12 +124,10 @@ let app = {
   },
   getReviews: function(id){
     let url = app.URL + 'movie/' + id + '/reviews?api_key=' + KEY;
-    console.log(url);
     fetch(url)
     .then(response => response.json())
-    .then(url => url.response)
-    let revurl;
-    app.getReviews(id).then(url => { revurl = url });
+    let revurl = url.response;
+    return String(revurl);
   }
 };
 
