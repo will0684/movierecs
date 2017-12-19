@@ -10,7 +10,7 @@
 // build and display the list of movie recommendations
 
 let app = {
-  URL: 'http://api.themoviedb.org/3/',
+  URL: 'https://api.themoviedb.org/3/',
   imgURL: '',
   init: function(){
     // focus on the text field
@@ -71,7 +71,7 @@ let app = {
       let id = movie.id;
       title.textContent = movie.title;
       desc.textContent = movie.overview;
-      poster.src = 'http://image.tmdb.org/t/p/w500' + movie.poster_path;
+      poster.src = 'https://image.tmdb.org/t/p/w500' + movie.poster_path;
       div.appendChild(poster);
       div.appendChild(title);
       div.appendChild(desc);
@@ -106,7 +106,7 @@ let app = {
                 desc.textContent = movie.overview;
                 rev.textContent = 'Read Review';
                 rev.setAttribute('href', revurl)
-                poster.src = 'http://image.tmdb.org/t/p/w500' + movie.poster_path;
+                poster.src = 'https://image.tmdb.org/t/p/w500' + movie.poster_path;
                 div.appendChild(poster);
                 div.appendChild(title);
                 div.appendChild(desc);
