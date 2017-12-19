@@ -11,32 +11,30 @@ html{
   line-height: 1.5;
   font-family: sans-serif;
 }
-
+h2{
+  font-family: 'Bitter', serif;
+  font-size: 1.5rem;
+  text-decoration: underline;
+}
  /*******************
       SEARCH BAR
  *******************/
-.home{
+#search-bar {
   position: fixed;
   height: 3rem;
   z-index: 100;
   border-bottom: 1px solid #333;
   background-color: white;
-  top: 25%;
   right: 0;
   left: 0;
   box-shadow: 0 2px 4px #000;
-  transition: translate 2s;
 }
 .search{
-  position: fixed;
-  height: 3rem;
-  z-index: 100;
-  border-bottom: 1px solid #333;
-  background-color: white;
   top: 0;
-  right: 0;
-  left: 0;
-  box-shadow: 0 2px 4px #000;
+  transition: all .4s linear;
+}
+.home{
+  top: 25%;
 }
 #back-button{
   position: absolute;
@@ -94,7 +92,7 @@ html{
 }
 .movie-desc{
   font-size: 1rem;
-  color: #000;
+  color: #777;
 }
 .recommendbtn{
   color: #333;
@@ -126,6 +124,9 @@ html{
 }
 .attribution img{
   width: 20%;
+}
+.recommendbtn:hover{
+  cursor: pointer;
 }
  /*******************
       DEFAULT

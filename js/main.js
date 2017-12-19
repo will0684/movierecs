@@ -27,6 +27,8 @@ let app = {
       document.getElementById('search-results').classList.remove('active');
       document.getElementById('recommend-results').classList.remove('active');
       document.getElementById('search-input').value = '';
+      document.getElementById('search-bar').classList.add('home');
+      document.getElementById('attribution').classList.remove('not');
     })
     // add a listener for <ENTER>
     window.addEventListener('keypress', function(ev){
@@ -38,9 +40,9 @@ let app = {
     });
   },
   runSearch: function(ev){
-    // do the fetch to get the list of movies
     ev.preventDefault();
-    document.getElementById('search-bar').classList.add('search');
+
+    document.getElementById('search-bar').classList.remove('home');
     let input = document.getElementById('search-input');
     if(input.value){
       // code will not run if empty string
@@ -62,7 +64,7 @@ let app = {
     container.innerHTML = '';
     movies.results.forEach(function(movie){
       let div = document.createElement('div');
-      let title = document.createElement('p');
+      let title = document.createElement('h2');
       let poster = document.createElement('img');
       let desc = document.createElement('p');
       let recmnd = document.createElement('div');
@@ -86,31 +88,36 @@ let app = {
           let url = app.URL + 'movie/' + id + '/recommendations?api_key=' + KEY + '&language=en-US&page=1';
           fetch(url)
           .then(response => response.json())
-          .then(data => {console.log(data);
+          .then(data => {
             let rec = data;
             rec.results.forEach(function(movie){
               let container = document.querySelector('#recommend-results .content');
               let df = document.createDocumentFragment();
               let div = document.createElement('div');
+              let title = document.createElement('h2');
               let poster = document.createElement('img');
               let desc = document.createElement('p');
               let rev = document.createElement('a');
               let id = movie.id;
-              div.textContent = movie.title;
-              desc.textContent = movie.overview;
-              rev.textContent = 'Read Reviews';
-              rev.setAttribute('href', app.getReviews(id))
-              poster.src = 'http://image.tmdb.org/t/p/w500' + movie.poster_path;
-              div.appendChild(poster);
-              div.appendChild(desc);
-              div.appendChild(rev);
-              div.classList.add('movie');
-              desc.classList.add('movie-desc');
-              poster.classList.add('poster')
-              df.appendChild(div);
-              container.appendChild(df);
-              container.appendChild(df);
-
+              app.getReviews(id)
+              .then(revurl =>{
+                console.log(revurl);
+                title.textContent = movie.title;
+                desc.textContent = movie.overview;
+                rev.textContent = 'Read Review';
+                rev.setAttribute('href', revurl)
+                poster.src = 'http://image.tmdb.org/t/p/w500' + movie.poster_path;
+                div.appendChild(poster);
+                div.appendChild(title);
+                div.appendChild(desc);
+                div.appendChild(rev);
+                div.classList.add('movie');
+                desc.classList.add('movie-desc');
+                poster.classList.add('poster')
+                df.appendChild(div);
+                container.appendChild(df);
+                container.appendChild(df);
+              })
             })
             document.getElementById('search-results'). classList.remove('active');
             document.getElementById('recommend-results'). classList.add('active');
@@ -124,10 +131,8 @@ let app = {
   },
   getReviews: function(id){
     let url = app.URL + 'movie/' + id + '/reviews?api_key=' + KEY;
-    fetch(url)
-    .then(response => response.json())
-    let revurl = url.response;
-    return String(revurl);
+    return fetch(url)
+           .then(response => response.json())
   }
 };
 
