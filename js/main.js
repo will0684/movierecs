@@ -41,7 +41,6 @@ let app = {
   },
   runSearch: function(ev){
     ev.preventDefault();
-
     document.getElementById('search-bar').classList.remove('home');
     let input = document.getElementById('search-input');
     if(input.value){
@@ -60,6 +59,7 @@ let app = {
     document.getElementById('search-results').classList.add('active');
     document.getElementById('search-input').classList.add('results');
     let container = document.querySelector('#search-results .content');
+    container.innerHTML = "";
     let df = document.createDocumentFragment();
     container.innerHTML = '';
     movies.results.forEach(function(movie){
@@ -82,9 +82,8 @@ let app = {
       poster.classList.add('poster')
       recmnd.classList.add('recommendbtn');
       df.appendChild(div);
-
+      // if similar movies button is clicked
       recmnd.addEventListener('click', function(){
-        // let movieid = ev.target.getAttribute('movie-id');
           let url = app.URL + 'movie/' + id + '/recommendations?api_key=' + KEY + '&language=en-US&page=1';
           fetch(url)
           .then(response => response.json())
@@ -92,6 +91,7 @@ let app = {
             let rec = data;
             rec.results.forEach(function(movie){
               let container = document.querySelector('#recommend-results .content');
+              container.innerHTML = "";
               let df = document.createDocumentFragment();
               let div = document.createElement('div');
               let title = document.createElement('h2');

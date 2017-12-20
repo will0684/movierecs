@@ -9,12 +9,14 @@
 html{
   font-size: 20px;
   line-height: 1.5;
-  font-family: sans-serif;
 }
 h2{
-  font-family: 'Bitter', serif;
+  font-family: 'Bitter', 'Times New Roman', Times, serif;
   font-size: 1.5rem;
   text-decoration: underline;
+}
+p{
+  font-family: 'Raleway', 'Segoe UI', Verdana, sans-serif;
 }
  /*******************
       SEARCH BAR
@@ -88,10 +90,9 @@ h2{
 }
 .movie-title{
   font-size: 2rem;
-
 }
 .movie-desc{
-  font-size: 1rem;
+  font-size: .9rem;
   color: #777;
 }
 .recommendbtn{
